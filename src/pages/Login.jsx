@@ -55,3 +55,9 @@ export default function Login() {
         </div>
     );
 }
+
+if (!user.emailVerified) {
+    await signOut(auth);
+    Swal.fire("Error", "Verifica tu correo antes de iniciar sesión", "error");
+    return;
+}

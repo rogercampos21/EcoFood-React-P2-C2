@@ -49,7 +49,10 @@ export default function Login() {
             className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            minLength="5"
+            maxLength="50"
             required
+            placeholder="ejemplo@correo.com"
           />
         </div>
         <div className="mb-3">
@@ -59,17 +62,14 @@ export default function Login() {
             className="form-control"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            minLength="6"
+            maxLength="20"
             required
+            placeholder="Mínimo 6 caracteres"
           />
         </div>
         <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
       </form>
     </div>
   );
-}
-
-if (!user.emailVerified) {
-    await signOut(auth);
-    Swal.fire("Error", "Verifica tu correo antes de iniciar sesión", "error");
-    return;
 }
